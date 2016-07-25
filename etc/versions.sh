@@ -1,7 +1,7 @@
 ng_version=1.8.0
 
 declare -A ng_modules=(\
-	["nginx-vod-module"]="1.5.2"\
+	["nginx-vod-module"]="1.9"\
 )
 
 # Use {} as a version placeholder.
