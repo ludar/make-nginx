@@ -21,7 +21,7 @@ The configuration file is plain text with ```^\s*#.*$``` comments. After built i
 - rename /usr/sbin/nginx into nginx-org and symlink /usr/sbin/nginx to /usr/local/nginx/sbin/nginx
 - start nginx
 
-```--uninstall``` words as:
+```--uninstall``` works as:
 - stop nginx
 - unhold all nginx packages
 - remove /usr/sbin/nginx and rename /usr/sbin/nginx-org to nginx
@@ -41,3 +41,11 @@ make-nginx/bin/setup.sh --install
 ```
 
 You're running the customized binary now
+
+Upgrading the customized nginx binary
+---------------------
+- set the new versions in ```etc/versions.sh```
+- fetch sources ```bin/sources.sh DIR```
+- build with ```bin/make.sh NGINX_SRC_DIR``` (this not only builds nginx but installs it into ```/usr/local/nginx``` so the new binary is already in place; old binary is renamed to ```nginx.old```)
+- check if the new binary is happy with the conf ```nginx -t```
+- tell nginx to use the new binary with ```service nginx upgrade```
