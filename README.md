@@ -2,7 +2,9 @@
 
 Tools to build and deploy a customised nginx quickly on ubuntu.
 
-*STOCK NGINX MUST BE INSTALLED FIRST!!*
+**STOCK NGINX MUST BE INSTALLED FIRST!!**
+- On Ubuntu 14.04 and 16.04 use `nginx-full`package.
+- On Debian 9 and Ubuntu 18.04 use `nginx-light` package **and remove mod-http-echo from enabled modules manually!!**
 
 *CUSTOMIZED BINARY IS RUNNING ON THE SAME /etc/nginx/nginx.conf*
 
