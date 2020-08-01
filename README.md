@@ -2,11 +2,12 @@
 
 Tools to build and deploy a customised nginx quickly on ubuntu.
 
-**STOCK NGINX MUST BE INSTALLED FIRST!!**
-- On Ubuntu 14.04 and 16.04 use `nginx-full`package.
-- On Debian 9 and Ubuntu 18.04 use `nginx-light` package **and remove mod-http-echo from enabled modules manually!!**
+**Stock nginx must be installed first.**
 
-*CUSTOMIZED BINARY IS RUNNING ON THE SAME /etc/nginx/nginx.conf*
+- Use `nginx-light` package.
+  **Remove mod-http-echo from enabled modules manually.**
+
+*The customized binary runs the same /etc/nginx/nginx.conf*
 
 ```bin/sources.sh DIR``` fetch nginx and modules sources according to ```etc/versions.sh```.
 Sources are stored to DIR under corresponding subdirs.
@@ -31,6 +32,12 @@ The configuration file is plain text with ```^\s*#.*$``` comments. After built i
 
 There are checks so you cant install/uninstall twice.
 
+Build deps (ubuntu 18.04, nginx 1.15.5)
+---------------------
+```
+build-essential libpcre3-dev libssl-dev libgeoip-dev libxpm-dev zlib1g-dev libgd-dev
+```
+
 Sample use
 ---------------------
 ```
@@ -38,7 +45,7 @@ cd /root
 git clone git@github.com:ludar/make-nginx.git
 mkdir tmp
 make-nginx/bin/sources.sh tmp
-make-nginx/bin/make.sh tmp/nginx-1.8.0
+make-nginx/bin/make.sh tmp/nginx-1.15.5
 make-nginx/bin/setup.sh --install
 ```
 
